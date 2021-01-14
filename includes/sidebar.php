@@ -2,9 +2,18 @@
 <div class="col-md-4">
 <?php
     if(isset($_POST['search'])){
-       echo $search = $_POST['search']; 
-    }else{
-        echo "";
+       $search = $_POST['search'];
+        $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%' ";
+        $query_search = mysqli_query($connect, $query);
+        if(!$query_search){
+            die("connection failed".mysqli_error($connect));
+        }
+        $count = mysqli_num_rows($query_search);
+        if($count == 0){
+            echo "<h1>No Results</h1>";
+        }else{
+            echo "many men";
+        }
     }
 
 ?>
