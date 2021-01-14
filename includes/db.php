@@ -11,9 +11,9 @@ foreach($db as $key => $value){
 
 $connect = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
-if($connect){
-    echo "yes sir";
-}
+//if($connect){
+//    echo "yes sir";
+//}
 
 
 
