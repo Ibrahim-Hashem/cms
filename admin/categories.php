@@ -43,6 +43,16 @@
                         <input type="submit" class="btn btn-primary" name="submit" value="Add Category">
                     </div>
                 </form>
+                 <form action="" method="post">
+                    <div class="form-group">
+                        <label for="cat_title">Edit Category</label>
+                        <input type="text" name="cat_title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                    
+                        <input type="submit" class="btn btn-primary" name="edit" value="Edit Category">
+                    </div>
+                </form>
             </div>
             <div class="col-xs-6">
                 <table class="table table-bordered table-hover">
@@ -63,6 +73,7 @@
                                         <td>{$cat_id}</td>
                                         <td>{$category}</td>
                                         <td><a href='categories.php?delete={$cat_id}'>X</a></td>
+                                        <td><a href='categories.php?edit={$cat_id}'>Edit</a></td>
                                     </tr>";
                             };
                       ?>
@@ -73,7 +84,8 @@
                             $delete_query_connect = mysqli_query($connect, $delete_query); 
                             header("Location: categories.php");
                         };
-                        ?>   
+                        ?>
+      
                     </tbody>
                 </table>
             </div>  
