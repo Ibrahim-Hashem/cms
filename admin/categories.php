@@ -71,7 +71,8 @@
                         if(isset($_GET['delete'])){
                             $the_delete_id = $_GET['delete'];
                             $delete_query = "DELETE FROM categories WHERE cat_id = {$the_delete_id} ";
-                            $delete_query_connect = mysqli_query($connect, $delete_query);   
+                            $delete_query_connect = mysqli_query($connect, $delete_query); 
+                            header("Location: categories.php");
                         };
                         ?>   
                     </tbody>
