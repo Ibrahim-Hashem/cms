@@ -9,8 +9,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Welcome to Admin Page
-                    <small>Author</small>
+                    Categories
                 </h1>
             </div>
             <div class="col-xs-6">
