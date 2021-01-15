@@ -1,5 +1,5 @@
-<?php include "includes/header.php"?>
-<?php include "includes/navigation.php"?>    
+<?php include "includes/admin_header.php"?>
+<?php include "includes/admin_navigation.php"?>    
 
 <div id="page-wrapper">
 
@@ -14,10 +14,31 @@
                 </h1>
             </div>
             <div class="col-xs-6">
-                <form action="">
+                <?php
+                    if(isset($_POST['submit'])){
+                        $cat_title = $_POST['cat_title'];
+                        if($cat_title == "" ||empty($cat_title)){
+                            echo "Enter a category";
+                        }else{
+                            $query_add = "INSERT INTO categories(cat_title) ";
+                            $query_add .="VALUE('{$cat_title}')";
+                            $create_category_query = mysqli_query($connect,$query_add);
+                            if(!$create_category_query){
+                                die("Quiery failed". mysqli_error($connect));
+                            };
+                        };
+                        
+                    };
+                ?>
+            
+                <?php
+                    $query = "SELECT * FROM categories";
+                    $select_sidebar_categories_query = mysqli_query($connect,$query);
+                 ?>   
+                <form action="" method="post">
                     <div class="form-group">
-                        <label for="cat-title">Add Category</label>
-                        <input type="text" name="cat-title" class="form-control">
+                        <label for="cat_title">Add Category</label>
+                        <input type="text" name="cat_title" class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" name="submit" value="Add Category">
@@ -25,10 +46,28 @@
                 </form>
             </div>
             <div class="col-xs-6">
-                
-            </div>
-            
-            
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Category title</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                           while($row = mysqli_fetch_assoc($select_sidebar_categories_query)){
+                                $category = $row['cat_title'];
+                                $cat_id = $row['cat_id'];
+                                echo 
+                                    "<tr>
+                                        <td>{$cat_id}</td>
+                                        <td>{$category}</td>
+                                    </tr>";
+                            };
+                      ?>   
+                    </tbody>
+                </table>
+            </div>  
         </div>
         <!-- /.row -->
         
@@ -38,4 +77,4 @@
 
 </div>
 <!-- /#page-wrapper -->
-<?php include "includes/footer.php"?>
+<?php include "includes/admin_footer.php"?>
