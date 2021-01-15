@@ -23,7 +23,7 @@
     <div class="well">
         <h4>Blog Categories</h4>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <ul class="list-unstyled">
                     <?php
                         $query = "SELECT * FROM categories";

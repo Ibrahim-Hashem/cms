@@ -22,7 +22,7 @@
                     echo "<li><a href='#'>{$category}</a></li>";
                 };
                 ?>
-                
+                <li class="btn-outline-secondary"><a href='admin/index.php'>Admin</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
