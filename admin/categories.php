@@ -34,17 +34,6 @@
                     $query = "SELECT * FROM categories";
                     $select_sidebar_categories_query = mysqli_query($connect,$query);
                  ?>
-                <?php 
-                        $cat_edit_id = $_GET['edit'];
-                        $edit_query = "SELECT * FROM categories WHERE cat_id = {$cat_edit_id}";
-                        $edit_category_query = mysqli_query($connect,$edit_query);
-                        while($row = mysqli_fetch_assoc($edit_category_query)){
-                            $cat_id = $row['cat_id'];
-                            $cat_title = $row['cat_title'];
-                ?>   
-                            
-                        <?php }; ?>
-                        
                         
                 
                 <form action="" method="post">
@@ -60,18 +49,20 @@
                     <div class="form-group">
                         <label for="cat_title">Edit Category</label>
                         <?php 
-                        $cat_edit_id = $_GET['edit'];
-                        $edit_query = "SELECT * FROM categories WHERE cat_id = {$cat_edit_id}";
-                        $edit_category_query = mysqli_query($connect,$edit_query);
-                        while($row = mysqli_fetch_assoc($edit_category_query)){
-                            $cat_id = $row['cat_id'];
-                            $cat_title = $row['cat_title'];
-                        ?>
-                           
-                        <input type="text" name="cat_title" class="form-control" value="<?php if(isset($cat_title)){ echo $cat_title;} ?>">
-                           
+                            if(isset($_GET['edit'])){
+                                $cat_id = $_GET['edit'];
+                                $query = "SELECT * FROM categories WHERE cat_id = {$cat_id}";
+                                $edit_category_query = mysqli_query($connect, $query);
+                                while($row = mysqli_fetch_assoc($edit_category_query)){
+                                    $cat_id = $row['cat_id'];
+                                    $cat_title = $row['cat_title'];
+                                    ?>
+                                    
+                                    <input type="text" name="cat_title" class="form-control" value="<?php echo $cat_title; ?>">
+                                    
+                                <?php } ?>
                             
-                        <?php }; ?>
+                    <?php } ?>
                     </div>
                     <div class="form-group">
                     
