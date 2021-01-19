@@ -1,3 +1,9 @@
+<?php
+    if(isset($_POST['create_post'])){
+        echo $_POST['create_post'];
+    }
+ ?> 
+
 <form action="" method="post" enctype="multipart/form-data">
    
     <div class="form-group">
@@ -36,6 +42,6 @@
     </div>
        
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="create_post" value="publish_post">
+        <input class="btn btn-primary" type="submit" name="create_post" value="publish post">
     </div>
 </form>
