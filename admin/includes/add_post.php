@@ -15,6 +15,16 @@
         
         move_uploaded_file($post_image_temp,"../images/$post_image");
         
+        $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags, post_comment_count ,post_status) ";
+        $query .= "VALUES({$post_cat_id},'{$post_title}', '{$post_author}', now(), '{$post_image}','{$post_content}', '{$post_tags}','{$post_comment_count}', '{$post_status}')";
+        
+        $create_post_query = mysqli_query($connect,$query);
+        
+        if($create_post_query){
+            echo "yes";
+        }else{
+            echo "no";
+        }
         
     }
  ?> 
