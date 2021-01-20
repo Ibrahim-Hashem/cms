@@ -20,12 +20,7 @@
         
         $create_post_query = mysqli_query($connect,$query);
         
-        if($create_post_query){
-            echo "yes";
-        }else{
-            echo "no";
-        }
-        
+        confirm($create_post_query);
     }
  ?> 
 
