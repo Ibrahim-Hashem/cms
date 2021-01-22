@@ -9,6 +9,9 @@
 
             <!-- Blog Entries Column -->
 
+                <h1 class="page-header">
+                   All posts
+                </h1>
             <div class="col-md-8">
                 
             <?php
@@ -20,13 +23,9 @@
                     $post_author = $row['post_author'];
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
-                    $post_content = $row['post_content'];
+                    $post_content = substr($row['post_content'],0,50);
                     
                     ?>
-                <h1 class="page-header">
-                   Header
-                    <small>Secondary Text</small>
-                </h1>
 
                 <!-- First Blog Post -->
                 <h2>
