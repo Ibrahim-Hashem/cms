@@ -54,6 +54,9 @@
         
         $query_edit_connect = mysqli_query($connect,$query);
         
+        header("Location: post.php");
+
+        
     }
 
  ?> 

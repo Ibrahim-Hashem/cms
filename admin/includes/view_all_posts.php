@@ -34,7 +34,21 @@
                     <td><?php echo $post_id;  ?></td>
                     <td><?php echo $post_author;  ?></td>
                     <td><?php echo $post_title;  ?></td>
-                    <td><?php echo $post_category_id;  ?></td>
+                    
+                    <?php
+                    $query = "SELECT * FROM categories WHERE cat_id = {$post_category_id}";
+                    $select_cat_connect = mysqli_query($connect,$query);
+                    while($row_post = mysqli_fetch_assoc($select_cat_connect)){
+                        $cat_id = $row_post["cat_id"];
+                        $cat_title = $row_post["cat_title"];
+                    ?>
+                    
+                    <?php echo "<td> $cat_title</td>"; ?> 
+                    
+                    <?php }; ?>
+                    
+                    
+                    
                     <td><?php echo $post_status;  ?></td>
                     <td><img src="../images/<?php echo $post_image;?>" style="width:200px;" alt=""></td>
                     <td><?php echo $post_tags;  ?></td>
