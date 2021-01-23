@@ -7,18 +7,18 @@
             <th>Email</th>
             <th>Status</th>
             <th>In response to</th>
+            <th>Date</th>
             <th>Approve</th>
             <th>Unapprove</th>
-            <th>Date</th>
             <th>Delete</th>
         </tr>
     </thead>
     <tbody>
         <?php
-            $query = "SELECT * FROM posts";
-            $query_connect = mysqli_query($connect,$query);
+            $query = "SELECT * FROM comments";
+            $query_comments = mysqli_query($connect,$query);
 
-            while($row = mysqli_fetch_assoc($query_connect)){
+            while($row = mysqli_fetch_assoc($query_comments)){
                 $comment_id = $row['comment_id'];
                 $comment_author = $row['comment_author'];
                 $comment_post_id = $row['comment_post_id'];
@@ -31,28 +31,16 @@
                     <td><?php echo $comment_id;  ?></td>
                     <td><?php echo $comment_author;  ?></td>
                     <td><?php echo $comment_content;  ?></td>
+                                
                     
-                    <?php
-                    $query = "SELECT * FROM categories WHERE cat_id = {$post_category_id}";
-                    $select_cat_connect = mysqli_query($connect,$query);
-                    while($row_post = mysqli_fetch_assoc($select_cat_connect)){
-                        $cat_id = $row_post["cat_id"];
-                        $cat_title = $row_post["cat_title"];
-                    ?>
-                    
-                    <?php echo "<td> $cat_title</td>"; ?> 
-                    
-                    <?php }; ?>
-                    
-                    
-                    
-                    <td><?php echo $post_status;  ?></td>
-                    <td><img src="../images/<?php echo $post_image;?>" style="width:200px;" alt=""></td>
-                    <td><?php echo $post_tags;  ?></td>
-                    <td><?php echo $post_comments;  ?></td>
-                    <td><?php echo $post_date;  ?></td>
-                    <td><a href=<?php echo "post.php?delete={$post_id}";?>>X</a></td>
-                    <td><a href=<?php echo "post.php?source=edit_post&p_id={$post_id}";?>>edit</a></td>
+                    <td><?php echo $comment_email;  ?></td>
+                    <td><?php echo $comment_status;  ?></td>
+                    <td>some title</td>
+                    <td><?php echo $comment_date;  ?></td>
+                    <td><a href=<?php echo "post.php?delete=";?>>Approve</a></td>
+                    <td><a href=<?php echo "post.php?source=edit_post&p_id=";?>>Unapprove</a></td>
+                    <td><a href=<?php echo "post.php?delete=";?>>X</a></td>
+                    <td><a href=<?php echo "post.php?source=edit_post&p_id=";?>>edit</a></td>
                     
                     <?php delete() ?>
                     
