@@ -62,9 +62,7 @@
                 $query .= "VALUES ($post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved', now())";
                   
                 $create_comment_query = mysqli_query($connect, $query);
-                  if($create_comment_query){
-                      echo "yes";
-                  }else{
+                  if(!$create_comment_query){
                       die("Query error" . mysqli_error($connect));
                   }
               }  
