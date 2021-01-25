@@ -51,13 +51,20 @@
                     <td><?php echo $comment_date;  ?></td>
                     <td><a href=<?php echo "post.php?delete=";?>>Approve</a></td>
                     <td><a href=<?php echo "post.php?source=edit_post&p_id=";?>>Unapprove</a></td>
-                    <td><a href=<?php echo "post.php?delete=";?>>X</a></td>
-                    <td><a href=<?php echo "post.php?source=edit_post&p_id=";?>>edit</a></td>
-                    
-                    <?php delete() ?>
+                    <td><a href=<?php echo "comments.php?delete=$comment_id"; ?> >X</a></td>;
                     
                 </tr> 
             <?php }; ?>
             
     </tbody>
 </table>
+
+<?php
+    if(isset($_GET['delete'])){
+        $the_comment_id = $_GET['delete'];
+        $delete_query = "DELETE FROM comments WHERE comment_id = $the_comment_id ";
+        $delete_query_connect = mysqli_query($connect, $delete_query);
+        header("Location: comments.php");
+        
+    }
+?>    
