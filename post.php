@@ -91,45 +91,40 @@
             <hr>
 
             <!-- Posted Comments -->
-
-            <!-- Comment -->
-            <div class="media">
-                <a class="pull-left" href="#">
-                    <img class="media-object" src="http://placehold.it/64x64" alt="">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">Start Bootstrap
-                        <small>August 25, 2014 at 9:30 PM</small>
-                    </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                </div>
-            </div>
-
-            <!-- Comment -->
-            <div class="media">
-                <a class="pull-left" href="#">
-                    <img class="media-object" src="http://placehold.it/64x64" alt="">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">Start Bootstrap
-                        <small>August 25, 2014 at 9:30 PM</small>
-                    </h4>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    <!-- Nested Comment -->
+            
+            <?php
+                    $post_id = $_GET['p_id'];
+                    $query_display = "SELECT * FROM comments WHERE comment_post_id = $post_id ";
+                    $query_display .= "AND comment_status = 'Approve' ";
+                    $query_display .= "ORDER BY comment_id DESC ";
+                    
+                    $comment_display_connection = mysqli_query($connect, $query_display);
+                    
+                    if(!$comment_display_connection){
+                        die("query broken". mysqli_error($connect));
+                    }
+                    
+                    while($row = mysqli_fetch_assoc($comment_display_connection)){
+                        $comment_display_id =$row['comment_id'];
+                        $comment_display_date =$row['comment_date'];
+                        $comment_display_author =$row['comment_author'];
+                        $comment_display_content =$row['comment_content'];
+                                  
+            ?>    
+                        
                     <div class="media">
                         <a class="pull-left" href="#">
                             <img class="media-object" src="http://placehold.it/64x64" alt="">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">Nested Start Bootstrap
-                                <small>August 25, 2014 at 9:30 PM</small>
+                            <h4 class="media-heading"><?php echo $comment_display_author; ?>
+                                <small><?php echo $comment_display_date; ?></small>
                             </h4>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            <?php echo $comment_display_content; ?>
                         </div>
-                    </div>
-                    <!-- End Nested Comment -->
-                </div>
-            </div>
+                    </div>        
+                        
+                <?php }; ?>
 
 
 
