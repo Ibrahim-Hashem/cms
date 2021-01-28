@@ -35,7 +35,7 @@
        
     <div class="form-group">
         <label for="post_categories">Post Category Id</label><br>
-        <select name="post_category_id" id="">
+        <select name="post_category_id" class="form-control" style="width:200px;" id="">
            <?php 
             $query = "SELECT * FROM categories ";
             $query_connect = mysqli_query($connect,$query);
@@ -59,12 +59,16 @@
        
     <div class="form-group">
         <label for="post_status">Post status</label>
-        <input type="text" class="form-control" name="post_status">
+        <select name="post_status" class="form-control" style="width:200px;" id="">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+            
+        </select>
     </div>
        
     <div class="form-group">
         <label for="post_image">Image</label>
-        <input type="file" class="form-contol" name="post_image">
+        <input type="file" class="form-contol"  name="post_image">
     </div>
     
     <div class="form-group">

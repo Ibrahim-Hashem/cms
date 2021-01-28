@@ -93,7 +93,10 @@
        
     <div class="form-group">
         <label for="post_status">Post status</label>
-        <input type="text" class="form-control" value="<?php echo "$post_status"; ?>" name="post_status">
+        <select name="post_status" class="form-control" style="width:200px;" id="">
+            <option value="draft">Draft</option>
+            <option value="published">Published</option>
+        </select>
     </div>
        
     <div class="form-group">
