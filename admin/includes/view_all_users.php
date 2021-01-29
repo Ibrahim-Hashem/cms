@@ -24,7 +24,6 @@
                 $user_email = $row['user_email'];
                 $user_image = $row['user_image'];
                 $user_role = $row['user_role'];
-                $user_date = $row['comment_date'];
                 ?>
                 <tr>        
                     <td><?php echo $user_id;  ?></td>
@@ -34,19 +33,6 @@
                     
                     <td><?php echo $user_email;  ?></td>
                     <td><?php echo $user_role;  ?></td>
-                    
-                    <?php
-                        
-                        $query = "SELECT * FROM posts WHERE post_id = $comment_post_id";
-                        $query_connect_title = mysqli_query($connect,$query);
-                        while($row = mysqli_fetch_assoc($query_connect_title)){
-                            $post_title = $row['post_title'];
-                            $post_id = $row['post_id'];    
-                            echo "<td><a href='../post.php?p_id=$post_id'>$post_title</a></td>";
-                        }
-                    
-                    ?>
-                    
                     <td><?php echo $user_date;  ?></td>
                     
                 </tr> 
