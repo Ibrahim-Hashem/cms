@@ -12,26 +12,28 @@
     </thead>
     <tbody>
         <?php
-            $query = "SELECT * FROM comments";
-            $query_comments = mysqli_query($connect,$query);
+            $query = "SELECT * FROM users";
+            $query_users = mysqli_query($connect,$query);
 
-            while($row = mysqli_fetch_assoc($query_comments)){
-                $comment_id = $row['comment_id'];
-                $comment_author = $row['comment_author'];
-                $comment_post_id = $row['comment_post_id'];
-                $comment_status = $row['comment_status'];
-                $comment_email = $row['comment_email'];
-                $comment_content = $row['comment_content'];
-                $comment_date = $row['comment_date'];
+            while($row = mysqli_fetch_assoc($query_users)){
+                $user_id = $row['user_id'];
+                $user_password = $row['user_password'];
+                $user_username = $row['username'];
+                $user_firstname = $row['user_firstname'];
+                $user_lastname = $row['user_lastname'];
+                $user_email = $row['user_email'];
+                $user_image = $row['user_image'];
+                $user_role = $row['user_role'];
+                $user_date = $row['comment_date'];
                 ?>
                 <tr>        
-                    <td><?php echo $comment_id;  ?></td>
-                    <td><?php echo $comment_author;  ?></td>
-                    <td><?php echo $comment_content;  ?></td>
-                                
+                    <td><?php echo $user_id;  ?></td>
+                    <td><?php echo $user_username;  ?></td>
+                    <td><?php echo $user_firstname;  ?></td>
+                    <td><?php echo $user_lastname;  ?></td>
                     
-                    <td><?php echo $comment_email;  ?></td>
-                    <td><?php echo $comment_status;  ?></td>
+                    <td><?php echo $user_email;  ?></td>
+                    <td><?php echo $user_role;  ?></td>
                     
                     <?php
                         
@@ -45,10 +47,7 @@
                     
                     ?>
                     
-                    <td><?php echo $comment_date;  ?></td>
-                    <td><a href=<?php echo "comments.php?approve=$comment_id";?>>Approve</a></td>
-                    <td><a href=<?php echo "comments.php?unapprove=$comment_id";?>>Unapprove</a></td>
-                    <td><a href=<?php echo "comments.php?delete=$comment_id"; ?> >X</a></td>
+                    <td><?php echo $user_date;  ?></td>
                     
                 </tr> 
             <?php } ?>
