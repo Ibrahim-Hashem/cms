@@ -29,12 +29,17 @@
 <form action="" method="post" enctype="multipart/form-data">
    
     <div class="form-group">
-        <label for="title">Post Title</label>
-        <input type="text" class="form-control" name="title">
+        <label for="user_firstname">First Name</label>
+        <input type="text" class="form-control" name="user_firstname">
     </div>
-       
+    
     <div class="form-group">
-        <label for="post_categories">Post Category Id</label><br>
+        <label for="user_lastname">Last Name</label>
+        <input type="text" class="form-control" name="user_lastname">
+    </div>   
+    
+    <div class="form-group">
+        <label for="post_categories">User Role</label><br>
         <select name="post_category_id" class="form-control" style="width:200px;" id="">
            <?php 
             $query = "SELECT * FROM categories ";

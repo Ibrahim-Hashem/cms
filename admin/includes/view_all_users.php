@@ -7,7 +7,6 @@
             <th>Lastname</th>
             <th>Email</th>
             <th>Role</th>
-            <th>Date</th>
         </tr>
     </thead>
     <tbody>
@@ -33,7 +32,10 @@
                     
                     <td><?php echo $user_email;  ?></td>
                     <td><?php echo $user_role;  ?></td>
-                    <td><?php echo $user_date;  ?></td>
+                    <td><a href="comments.php?approve"></a>approved</td>
+                    <td><a href="comments.php?unpprove"></a>unapprove</td>
+                    <td><a href="comments.php?delete"></a>unapprove</td>
+                    
                     
                 </tr> 
             <?php } ?>
