@@ -39,17 +39,17 @@
     </div>   
     
     <div class="form-group">
-        <label for="post_categories">User Role</label><br>
-        <select name="post_category_id" class="form-control" style="width:200px;" id="">
+        <label for="user_role">User Role</label><br>
+        <select name="user_role" class="form-control" style="width:200px;" id="">
            <?php 
-            $query = "SELECT * FROM categories ";
+            $query = "SELECT * FROM users ";
             $query_connect = mysqli_query($connect,$query);
 
             while($row = mysqli_fetch_assoc($query_connect)){
-                $cat_id = $row['cat_id'];
-                $cat_title = $row['cat_title'];
+                $user_id = $row['user_id'];
+                $user_role= $row['user_role'];
 
-                echo "<option value='{$cat_id}'>{$cat_title}</option>";
+                echo "<option value='{$user_id}'>{$user_role}</option>";
             }
 
             ?>
@@ -58,10 +58,11 @@
     </div>
        
     <div class="form-group">
-        <label for="title">Post Author</label>
-        <input type="text" class="form-control" name="post_author">
+        <label for="user_username">Username</label>
+        <input type="text" class="form-control" name="user_username">
     </div>
        
+<!--
     <div class="form-group">
         <label for="post_status">Post status</label>
         <select name="post_status" class="form-control" style="width:200px;" id="">
@@ -70,23 +71,25 @@
             
         </select>
     </div>
+-->
        
+<!--
     <div class="form-group">
         <label for="post_image">Image</label>
         <input type="file" class="form-contol"  name="post_image">
     </div>
+-->
     
     <div class="form-group">
-        <label for="post_tags">Tags</label>
-        <input type="text" class="form-control" name="post_tags">
+        <label for="user_email">Email</label>
+        <input type="text" class="form-control" name="user_email">
+    </div>
+    <div class="form-group">
+        <label for="user_password">Password</label>
+        <input type="text" class="form-control" name="user_password">
     </div>
        
     <div class="form-group">
-        <label for="post_content">Content</label>
-        <textarea name="post_content" class = "form-control" id="" cols="30" rows="10"></textarea>
-    </div>
-       
-    <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="create_post" value="publish post">
+        <input class="btn btn-primary" type="submit" name="create_user" value="Create User">
     </div>
 </form>
