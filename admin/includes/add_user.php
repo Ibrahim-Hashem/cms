@@ -38,24 +38,6 @@
         <input type="text" class="form-control" name="user_lastname">
     </div>   
     
-    <div class="form-group">
-        <label for="user_role">User Role</label><br>
-        <select name="user_role" class="form-control" style="width:200px;" id="">
-           <?php 
-            $query = "SELECT * FROM users ";
-            $query_connect = mysqli_query($connect,$query);
-
-            while($row = mysqli_fetch_assoc($query_connect)){
-                $user_id = $row['user_id'];
-                $user_role= $row['user_role'];
-
-                echo "<option value='{$user_id}'>{$user_role}</option>";
-            }
-
-            ?>
-
-        </select>
-    </div>
        
     <div class="form-group">
         <label for="user_username">Username</label>
