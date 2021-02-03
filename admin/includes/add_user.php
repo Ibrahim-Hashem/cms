@@ -44,16 +44,13 @@
         <input type="text" class="form-control" name="user_username">
     </div>
        
-<!--
     <div class="form-group">
-        <label for="post_status">Post status</label>
+        <label for="post_status">Role</label>
         <select name="post_status" class="form-control" style="width:200px;" id="">
-            <option value="draft">Draft</option>
-            <option value="published">Published</option>
-            
+            <option value="admin">Admin</option>
+            <option value="subscriber">Subscriber</option>
         </select>
     </div>
--->
        
 <!--
     <div class="form-group">
