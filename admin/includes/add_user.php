@@ -1,22 +1,22 @@
 <?php
     if(isset($_POST['create_user'])){
-       echo  $user_firstname = $_POST['user_firstname'];
+        $user_firstname = $_POST['user_firstname'];
         $user_lastname = $_POST['user_lastname'];
-        $user_role = $_POST['user_role'];
         $user_username = $_POST['user_username'];
+        $user_role = $_POST['user_role'];
         
-//        $post_image = $_FILES['post_image']['name'];
-//        $post_image_temp = $_FILES['post_image']['tmp_name'];
+        $user_image = $_FILES['user_image']['name'];
+        $user_image_temp = $_FILES['user_image']['tmp_name'];
         
         $user_email = $_POST['user_email'];
         $user_password = $_POST['user_password'];
 //        $post_date = date('d-m-y');
 //        $post_comment_count = 4;
         
-//        move_uploaded_file($post_image_temp,"../images/$post_image");
+        move_uploaded_file($user_image_temp,"../images/$user_image");
         
-        $query = "INSERT INTO users(username, user_password, user_firstname, user_lastname, user_email, user_role) ";
-        $query .= "VALUES({$user_username},'{$user_password}', '{$user_firstname}', '{$user_lastname}','{$user_email}', '{$user_role}')";
+        $query = "INSERT INTO users(username, user_password, user_firstname, user_lastname, user_email, user_image, user_role) ";
+        $query .= "VALUES('{$user_username}','{$user_password}', '{$user_firstname}', '{$user_lastname}','{$user_email}', '{$user_image}' ,'{$user_role}')";
         
         $create_user_query = mysqli_query($connect,$query);
         
@@ -53,12 +53,10 @@
         </select>
     </div>
        
-<!--
     <div class="form-group">
-        <label for="post_image">Image</label>
-        <input type="file" class="form-contol"  name="post_image">
+        <label for="user_image">Image</label>
+        <input type="file" class="form-contol"  name="user_image">
     </div>
--->
     
     <div class="form-group">
         <label for="user_email">Email</label>
@@ -66,7 +64,7 @@
     </div>
     <div class="form-group">
         <label for="user_password">Password</label>
-        <input type="text" class="form-control" name="user_password">
+        <input type="password" class="form-control" name="user_password">
     </div>
        
     <div class="form-group">
