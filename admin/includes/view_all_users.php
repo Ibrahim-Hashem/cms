@@ -35,7 +35,7 @@
                     <td><a href=<?php echo "users.php?admin=$user_id"; ?> >Admin</a></td>
                     
                     <td><a href=<?php echo "users.php?subscriber=$user_id"; ?> >Subscriber</a></td>
-                    <td><a href=<?php echo "users.php?source=edit_user&edit_user=$user_id"; ?> >X</a></td>
+                    <td><a href=<?php echo "users.php?source=edit_user&edit_user=$user_id"; ?> >Edit</a></td>
                     <td><a href=<?php echo "users.php?delete=$user_id"; ?> >X</a></td>
                     
                     
