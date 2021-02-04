@@ -15,8 +15,8 @@
         
         move_uploaded_file($user_image_temp,"../images/$user_image");
         
-        $query = "INSERT INTO users(username, user_password, user_firstname, user_lastname, user_email, user_image, user_role) ";
-        $query .= "VALUES('{$user_username}','{$user_password}', '{$user_firstname}', '{$user_lastname}','{$user_email}', '{$user_image}' ,'{$user_role}')";
+        $query = "INSERT INTO users(username, user_password, user_firstname, user_lastname, user_email, user_image, user_role, randSalt) ";
+        $query .= "VALUES('{$user_username}','{$user_password}', '{$user_firstname}', '{$user_lastname}','{$user_email}', '{$user_image}' ,'{$user_role}','')";
         
         $create_user_query = mysqli_query($connect,$query);
         
