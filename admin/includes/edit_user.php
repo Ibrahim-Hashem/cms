@@ -70,9 +70,16 @@ if(isset($_POST['edit_user'])){
     <div class="form-group">
         <label for="user_role">Role</label>
         <select name="user_role" class="form-control" style="width:200px;" id="" value="<?php echo "$user_role"; ?>">
-            <option value="subscriber">Select option</option>
-            <option value="admin">Admin</option>
-            <option value="subscriber">Subscriber</option>
+            <option value="subscriber"><?php echo "$user_role"; ?></option>
+            <?php 
+                if($user_role =='admin'){
+                    echo "<option value='subscriber'>subscriber</option>";
+                    
+                }else{
+                    
+                    echo "<option value='admin'>admin</option>";
+                }
+            ?>
         </select>
     </div>
        
