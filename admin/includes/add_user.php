@@ -1,27 +1,27 @@
 <?php
-    if(isset($_POST['create_post'])){
-        $post_title = $_POST['title'];
-        $post_cat_id = $_POST['post_category_id'];
-        $post_author = $_POST['post_author'];
-        $post_status = $_POST['post_status'];
+    if(isset($_POST['create_user'])){
+       echo  $user_firstname = $_POST['user_firstname'];
+        $user_lastname = $_POST['user_lastname'];
+        $user_role = $_POST['user_role'];
+        $user_username = $_POST['user_username'];
         
-        $post_image = $_FILES['post_image']['name'];
-        $post_image_temp = $_FILES['post_image']['tmp_name'];
+//        $post_image = $_FILES['post_image']['name'];
+//        $post_image_temp = $_FILES['post_image']['tmp_name'];
         
-        $post_tags = $_POST['post_tags'];
-        $post_content = $_POST['post_content'];
-        $post_date = date('d-m-y');
+        $user_email = $_POST['user_email'];
+        $user_password = $_POST['user_password'];
+//        $post_date = date('d-m-y');
 //        $post_comment_count = 4;
         
-        move_uploaded_file($post_image_temp,"../images/$post_image");
+//        move_uploaded_file($post_image_temp,"../images/$post_image");
         
-        $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, post_content, post_tags, post_comment_count ,post_status) ";
-        $query .= "VALUES({$post_cat_id},'{$post_title}', '{$post_author}', now(), '{$post_image}','{$post_content}', '{$post_tags}',0, '{$post_status}')";
+        $query = "INSERT INTO users(username, user_password, user_firstname, user_lastname, user_email, user_role) ";
+        $query .= "VALUES({$user_username},'{$user_password}', '{$user_firstname}', '{$user_lastname}','{$user_email}', '{$user_role}')";
         
-        $create_post_query = mysqli_query($connect,$query);
+        $create_user_query = mysqli_query($connect,$query);
         
-        confirm($create_post_query);
-        header("Location: post.php");
+        confirm($create_user_query);
+        header("Location: users.php");
 
     }
  ?> 
@@ -45,8 +45,9 @@
     </div>
        
     <div class="form-group">
-        <label for="post_status">Role</label>
-        <select name="post_status" class="form-control" style="width:200px;" id="">
+        <label for="user_role">Role</label>
+        <select name="user_role" class="form-control" style="width:200px;" id="">
+            <option value="subscriber">Select option</option>
             <option value="admin">Admin</option>
             <option value="subscriber">Subscriber</option>
         </select>
