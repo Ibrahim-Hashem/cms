@@ -85,7 +85,7 @@
     </div>
        
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="edit_user" value="update user">
+        <input class="btn btn-primary" type="submit" name="edit_profile" value="update profile">
     </div>
 </form>
         
