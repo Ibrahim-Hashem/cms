@@ -22,7 +22,38 @@
         
 
     }
-?> 
+?>
+
+
+<?php
+if(isset($_POST['edit_profile'])){
+    $user_firstname_edit = $_POST['user_firstname'];
+    $user_lastname_edit = $_POST['user_lastname'];
+    $user_username_edit = $_POST['user_username'];
+    $user_role_edit = $_POST['user_role'];
+
+    $user_image_edit = $_FILES['user_image']['name'];
+    $user_image_temp_edit = $_FILES['user_image']['tmp_name'];
+
+    $user_email_edit = $_POST['user_email'];
+    $user_password_edit = $_POST['user_password'];
+//        $post_date = date('d-m-y');
+//        $post_comment_count = 4;
+
+    move_uploaded_file($user_image_temp,"../images/$user_image");
+
+   
+    $query_update = "UPDATE users SET username='{$user_username_edit}', user_password='{$user_password_edit}',user_firstname='{$user_firstname_edit}', user_lastname ='{$user_lastname_edit}',`user_email`='{$user_email_edit}', user_image='{$user_image_edit}',user_role='{$user_role_edit}', randSalt = '' WHERE username = '{$username}' ";
+    
+
+    $edit_user_query = mysqli_query($connect,$query_update);
+
+    confirm($edit_user_query);
+    header("Location: profile.php");
+    
+
+}
+?>   
 
 
 <div id="page-wrapper">
