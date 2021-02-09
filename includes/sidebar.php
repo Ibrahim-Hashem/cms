@@ -31,7 +31,7 @@
                 <input type="password" name="password" class="form-control" placeholder="Enter password">
                 <span class="input-group-btn">
                     <button class="btn btn-primary" name="login" type="submit">
-                        button
+                        Login
                     </button>
                 </span>
             </div>
