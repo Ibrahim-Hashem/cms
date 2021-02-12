@@ -70,12 +70,12 @@ if(isset($_POST['edit_profile'])){
         
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="user_firstname">First Name</label>
+        <label for="user_firstname">First name</label>
         <input type="text" class="form-control" name="user_firstname" value="<?php echo "$user_firstname"; ?>">
     </div>
     
     <div class="form-group">
-        <label for="user_lastname">Last Name</label>
+        <label for="user_lastname">Last name</label>
         <input type="text" class="form-control" name="user_lastname" value="<?php echo "$user_lastname"; ?>">
     </div>   
     
