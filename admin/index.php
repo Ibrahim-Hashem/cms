@@ -71,6 +71,21 @@
                         <i class="fa fa-user fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
+                    
+<?php
+
+//    $query = 'SELECT * FROM posts';
+//    $select_all_post = mysqli_query($connect,$query);
+//    for($row = mysqli_fetch_assoc($select_all_post)){
+//        $post_id = $row[post_id];
+//        echo $post_id;
+//    } 
+
+?>
+                    
+                    
+                    
+                    
                     <div class='huge'>23</div>
                         <div> Users</div>
                     </div>
