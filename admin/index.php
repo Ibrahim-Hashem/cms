@@ -27,7 +27,18 @@
                         <i class="fa fa-file-text fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                  <div class='huge'>12</div>
+<?php
+
+    $query = 'SELECT * FROM posts';
+    $select_all_post = mysqli_query($connect,$query);
+    $post_count = mysqli_num_rows($select_all_post);
+    
+    while($row = mysqli_fetch_assoc($select_all_post)){
+        
+        
+    } 
+?>
+                  <div class='huge'><?php echo $post_count; ?></div>
                         <div>Posts</div>
                     </div>
                 </div>
@@ -49,7 +60,18 @@
                         <i class="fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                     <div class='huge'>23</div>
+ <?php
+
+    $query = 'SELECT * FROM comments';
+    $select_all_comments = mysqli_query($connect,$query);
+    $comment_count = mysqli_num_rows($select_all_comments);
+    
+    while($row = mysqli_fetch_assoc($select_all_comments)){
+        
+        
+    } 
+?>
+                     <div class='huge'><?php echo $comment_count; ?></div>
                       <div>Comments</div>
                     </div>
                 </div>
@@ -71,22 +93,19 @@
                         <i class="fa fa-user fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                    
 <?php
 
-//    $query = 'SELECT * FROM posts';
-//    $select_all_post = mysqli_query($connect,$query);
-//    for($row = mysqli_fetch_assoc($select_all_post)){
-//        $post_id = $row[post_id];
-//        echo $post_id;
-//    } 
-
+    $query = 'SELECT * FROM users';
+    $select_all_users = mysqli_query($connect,$query);
+    $user_count = mysqli_num_rows($select_all_users);
+    
+    while($row = mysqli_fetch_assoc($select_all_users)){
+        
+        
+    } 
 ?>
-                    
-                    
-                    
-                    
-                    <div class='huge'>23</div>
+                                 
+                    <div class='huge'><?php echo $user_count; ?></div>
                         <div> Users</div>
                     </div>
                 </div>
@@ -108,7 +127,18 @@
                         <i class="fa fa-list fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class='huge'>13</div>
+<?php
+
+    $query = 'SELECT * FROM categories';
+    $select_all_categories = mysqli_query($connect,$query);
+    $categories_count = mysqli_num_rows($select_all_categories);
+    
+    while($row = mysqli_fetch_assoc($select_all_categories)){
+        
+        
+    } 
+?>
+                        <div class='huge'><?php echo $categories_count; ?></div>
                          <div>Categories</div>
                     </div>
                 </div>
