@@ -153,6 +153,27 @@
             </div>
         </div>
                 <!-- /.row -->
+                
+<?php
+            
+    $query = "SELECT * FROM posts WHERE post_status = 'draft'";
+    $select_all_draft_post = mysqli_query($connect,$query);
+    $post_draft_count = mysqli_num_rows($select_all_draft_post);
+
+
+    $query = "SELECT * FROM comments WHERE comment_status = 'Unapprove'";
+    $select_all_comment_status = mysqli_query($connect,$query);
+    $select_all_comment_status_count = mysqli_num_rows($select_all_comment_status);
+    
+    $query = "SELECT * FROM users WHERE user_role = 'subscriber'";
+    $select_all_subscriber = mysqli_query($connect,$query);
+    $select_all_subscriber_count = mysqli_num_rows($select_all_subscriber);
+                  
+?>                
+                
+                
+                
+                
     <!-- /.row -->
         <div class="row">
             <script type="text/javascript">
@@ -162,9 +183,17 @@
               function drawChart() {
                 var data = google.visualization.arrayToDataTable([
                   ['Data', 'Count'],
+                    
                   ['Posts', <?php echo $post_count; ?>],
+                  ['Draft posts', <?php echo $post_draft_count; ?>],
+                    
                   ['Comments', <?php echo $comment_count; ?>],
-                  ['Users', <?php echo $user_count; ?>],
+                  ['Unapproved Comments', <?php echo $select_all_comment_status_count; ?>],
+                
+                    
+                  ['Users', <?php echo $user_count; ?>],  
+                  ['Subscribers', <?php echo $select_all_subscriber_count; ?>],
+    
                   ['Categories', <?php echo $categories_count; ?>],
                     
                     
