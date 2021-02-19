@@ -1,3 +1,4 @@
 {
-    require twbs/bootstrap
+    "require": {
+    }
 }
